@@ -1,0 +1,35 @@
+<div class="container">
+
+
+<div class="row p-2 justify-content-center">
+  <div class="col-4 ">
+    <div class="input-group rounded ">
+      <input type="search" name="searchText" [(ngModel)]="searchText" class="form-control rounded" placeholder="Search" aria-label="Search"
+      aria-describedby="search-addon" />
+      <button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <!-- <ul *ngFor="let data of dataset | filter: searchText"> -->
+        <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of dataset">
+            
+            <td scope="row">{{data}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+    </div>
+  </div>
+  
+</div>
+</div>

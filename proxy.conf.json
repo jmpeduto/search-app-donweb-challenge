@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "http://138.36.238.131:50074/api/getAllCategorias",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+  }
+}
