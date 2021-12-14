@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://127.0.0.1:8000/api/getAllCategorias",
+    "target": "http://138.36.238.131:50074/api/getAllCategorias",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
