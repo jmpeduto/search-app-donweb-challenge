@@ -16,13 +16,15 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Producto</th>
+              <th>Categoria</th>
+              <th>Id</th>
             </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of dataset">
+          <tr *ngFor="let categoria of listado | filter: searchText">
             
-            <td scope="row">{{data}}</td>
+            <td scope="row">{{categoria.nombre}}</td>
+            <td scope="row">{{categoria.id}}</td>
           </tr>
         </tbody>
       </table>

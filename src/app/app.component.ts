@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { SearchServiceService } from './services/search-service.service';
+import { Categoria } from './interfaces/categoria.interface';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { SearchServiceService } from './services/search-service.service';
 export class AppComponent {
   title = 'search-app';
   public searchText:any;
+  listado:Categoria[] = [];
 
   public dataset:any[] = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
 
@@ -18,10 +20,10 @@ export class AppComponent {
 
   public search(text:any){
     console.log(text);
+    console.log(this.listado);
   }
 
   ngOnInit(){
-    this.searchService.getAllCategorias();
-    console.log('caca');
+    this.searchService.getAllCategorias().subscribe((resp: any) => (this.listado = resp.data));;
   }
 }
