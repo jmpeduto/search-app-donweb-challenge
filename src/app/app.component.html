@@ -1,16 +1,93 @@
-<div class="container">
+<!-- ejemplo carrito 1 https://codepen.io/drehimself/pen/VvYLmV -->
+<nav>
+  <div class="container">
+    <ul class="navbar-left">
+      <li><a href="#">Productos</a></li>
+    </ul> <!--end navbar-left -->
+
+    <ul class="navbar-right">
+      <li><a href="#" id="cart" (click)="toggle()" ><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+    </ul> <!--end navbar-right -->
+  </div> <!--end container -->
+</nav>
+
+
+<div class="container" style="z-index: 1000;" *ngIf="showCart">
+
+
+      <div class="shopping-cart">
+        <div class="shopping-cart-header">
+          <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+          <div class="shopping-cart-total">
+            <span class="lighter-text">Total:</span>
+            <span class="main-color-text">$2,229.97</span>
+          </div>
+        </div> <!--end shopping-cart-header -->
+    
+        <ul class="shopping-cart-items">
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+            <span class="item-name">Sony DSC-RX100M III</span>
+            <span class="item-price">$849.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+    
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+            <span class="item-name">KS Automatic Mechanic...</span>
+            <span class="item-price">$1,249.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+    
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+            <span class="item-name">Kindle, 6" Glare-Free To...</span>
+            <span class="item-price">$129.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+        </ul>
+    
+        <a href="#" class="button">Checkout</a>
+      </div> <!--end shopping-cart -->
+</div> <!--end container -->
+<!-- ende ejemplo carrito 1 -->
+
+<!-- ejemplo carrito 2 -->
+<!-- <div class="container">
+  <div class="row">
+  <div class="col-lg-12 col-sm-12 col-12 main-section">
+  <div class="dropdown">
+  <button type="button" class="btn btn-info" data-toggle="dropdown">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+  </button>
+  <div class="dropdown-menu">
+  <div class="row total-header-section">
+  <div class="col-lg-6 col-sm-6 col-6">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">3</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div> -->
+<!-- ejemplo carrito 2 -->
+
+
+
+<div class="container mt-2" style="z-index: 500;">
 
 
 <div class="row p-2 justify-content-center">
-  <div class="col-4 ">
+  <div class="col-8">
     <div class="input-group rounded ">
-      <input type="search" name="searchText" [(ngModel)]="searchText" class="form-control rounded" placeholder="Buscar" aria-label="Buscar"
+      <input type="search" name="searchText" [(ngModel)]="searchText" class="form-control rounded w-75" placeholder="Buscar" aria-label="Buscar"
       aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-search"></i></button>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-4">
+  <div class="row justify-content-center p-2 mt-2 rounded">
+    <div class="col-8 listado-productos rounded">
       <!-- <ul *ngFor="let data of dataset | filter: searchText"> -->
         <div class="table-responsive">
         <table class="table">
@@ -31,6 +108,7 @@
     </div>
       
     </div>
+    
   </div>
   
 </div>
