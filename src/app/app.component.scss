@@ -45,6 +45,8 @@ nav {
     li {
       display: inline;
       padding-left: 20px;
+    list-style:none;
+        
       a {
         color: #777777;
         text-decoration: none;
@@ -98,6 +100,7 @@ nav {
 
       li {
         margin-bottom: 18px;
+        list-style: none;
       }
 
     img {
