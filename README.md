@@ -1,7 +1,7 @@
 # Solucion para Cors Angular
- Crear un archivo de configuracion en la raiz del proyecto proxy.conf.json
+ Crear un archivo de configuracion en la raiz del proyecto **proxy.conf.json**
  
- pathRewrite quita el /api de la llamada a la consulta del target
+ **pathRewrite** quita el /api de la llamada a la consulta del target
  
  ```javascript{
   "/api/*": {
@@ -13,11 +13,12 @@
         "^/api": ""
       }
   }
-}```
+}
+```
 
 Esto significa que cada llamada a http://localhost:4200/api va a apuntar a http://138.36.238.131:50074/api/getAllCategorias
 
-Agregar estas lineas en angular.json para que al ejecutar ng serve se levante la configuracion del proxy
+Agregar estas lineas en angular.json para que al ejecutar **ng serve** se levante la configuracion del proxy
 
 ```javascript.....
 "serve": {
@@ -27,7 +28,8 @@ Agregar estas lineas en angular.json para que al ejecutar ng serve se levante la
             "proxyConfig": "proxy.conf.json"
           },
     ......
-}```
+}
+```
 
 # SearchApp
 
