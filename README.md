@@ -1,6 +1,6 @@
 # Solucion para Cors Angular
- Crear un archivo de configuracion en la raiz del proyecto proxy.conf.json
- [pathRewrite] quita el /api de la llamada a la consulta del target
+ Crear un archivo de configuracion en la raiz del proyecto proxy.conf.json 
+ pathRewrite quita el /api de la llamada a la consulta del target
  
  `{
   "/api/*": {
