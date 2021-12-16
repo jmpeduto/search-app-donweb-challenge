@@ -1,0 +1,94 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Hidden brand</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav> -->
+
+<!-- ejemplo carrito 1 https://codepen.io/drehimself/pen/VvYLmV -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <ul class="navbar-left">
+        <li><a href="#">Productos</a></li>
+            
+      </ul> <!--end navbar-left -->
+      <form action="#" class="d-flex p-0 me-auto" style="margin-top: -15px; margin-left: 15px;">
+      <input type="search" name="searchText" [(ngModel)]="searchText" class="form-control rounded search-box" placeholder="Buscar" aria-label="Buscar"
+            aria-describedby="search-addon" />
+            <button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-search"></i></button>
+          </form>
+      
+      <ul class="navbar-right">
+        <li><a href="#" id="cart" (click)="toggle()" ><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+      </ul> <!--end navbar-right -->
+    </div> <!--end container -->
+  </nav>
+  
+  
+  <div class="container-fluid" *ngIf="showCart">
+  
+  
+        <div class="shopping-cart shadow-lg p-3 mb-5 bg-body rounded animate__animated animate__faster animate__fadeIn">
+          <div class="shopping-cart-header">
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+            <div class="shopping-cart-total">
+              <span class="lighter-text">Total:</span>
+              <span class="main-color-text">$2,229.97</span>
+            </div>
+          </div> <!--end shopping-cart-header -->
+      
+          <ul class="shopping-cart-items">
+            <li *ngFor="let item of listadoProductosCart" class="clearfix">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+              <span class="item-name">Sony DSC-RX100M III</span>
+              <span class="item-price">$849.99</span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+      
+            
+          </ul>
+      
+          <a href="#" class="button">Checkout</a>
+        </div> <!--end shopping-cart -->
+  </div> <!--end container -->
+  <!-- ende ejemplo carrito 1 -->
+  
+  <!-- ejemplo carrito 2 -->
+  <!-- <div class="container">
+    <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12 main-section">
+    <div class="dropdown">
+    <button type="button" class="btn btn-info" data-toggle="dropdown">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+    </button>
+    <div class="dropdown-menu">
+    <div class="row total-header-section">
+    <div class="col-lg-6 col-sm-6 col-6">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">3</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div> -->
+  <!-- ejemplo carrito 2 -->

@@ -8,13 +8,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ListadoCheckoutComponent } from './components/listado-checkout/listado-checkout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
-    FilterPipe
+    FilterPipe,
+    NavBarComponent,
+    ListadoCheckoutComponent
   ],
   imports: [
     BrowserModule,
