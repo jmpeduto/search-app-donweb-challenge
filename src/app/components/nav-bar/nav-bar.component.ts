@@ -33,6 +33,8 @@ export class NavBarComponent implements OnInit {
 
   public search(text: any) {
     // console.log(text);
-    this.search_.emit(text);
+    // this.search_.emit(text);
+    this._searchService.searchListado(text);
+
   }
 }

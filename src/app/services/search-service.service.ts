@@ -23,6 +23,31 @@ export class SearchServiceService {
     this.http.post(this.url, '').subscribe( (res:any) => this.listadoSource.next(res.data));
   }
 
+  searchListado(searchText:string){
+    let listadoAux:any[] = [];
+    console.log(searchText);
+    this.http.post(this.url, '').subscribe( (res:any) => {
+      res.data.forEach((producto:any) => {
+        if (producto.nombre.toLowerCase().includes(searchText.toLowerCase())) {
+          listadoAux.push(producto);
+        }
+      }),
+
+      this.listadoSource.next(listadoAux);
+    });
+
+    // this.currentListado$.subscribe(
+    //   (listado:any) => (
+    //     listado.filter((it:any) => {
+    //       return it.nombre.toLocaleLowerCase().includes(searchText);
+    //     })),
+    //     console.log(this.listado);
+    //     );
+    // items.filter(it => {
+    //   return it.nombre.toLocaleLowerCase().includes(searchText);
+    // });
+  }
+
   someMethod() {
     return this.http.get(this.url).pipe(
       map((res) => {
