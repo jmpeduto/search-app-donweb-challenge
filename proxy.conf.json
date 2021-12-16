@@ -1,11 +1,38 @@
 {
-  "/api/*": {
-    "target": "http://127.0.0.1:8000/api/getAllCategorias",
+  "/getListado": {
+    "target": "http://c1300044.ferozo.com/getListado.php",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
       "pathRewrite": {
-        "^/api": ""
+        "^/getListado": ""
+      }
+  },
+  "/agregarItem": {
+    "target": "http://c1300044.ferozo.com/agregarItem.php",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+      "pathRewrite": {
+        "^/agregarItem": ""
+      }
+  },
+  "/getListadoCarrito": {
+    "target": "http://c1300044.ferozo.com/getListadoCarrito.php",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+      "pathRewrite": {
+        "^/getListadoCarrito": ""
+      }
+  },
+  "/removerItem": {
+    "target": "http://c1300044.ferozo.com/removerItem.php",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+      "pathRewrite": {
+        "^/removerItem": ""
       }
   }
 }
