@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('oninit');
+    // this.navBar.setTitulo("Productos");
     this._searchService.getAllCategorias();
     this._searchService.currentListado$.subscribe(
       (listado: any) => (this.listadoProductos = listado)
