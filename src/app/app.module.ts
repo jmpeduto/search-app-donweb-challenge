@@ -10,6 +10,7 @@ import { FilterPipe } from './filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListadoCheckoutComponent } from './components/listado-checkout/listado-checkout.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ListadoCheckoutComponent } from './components/listado-checkout/listado-
     SearchPageComponent,
     FilterPipe,
     NavBarComponent,
-    ListadoCheckoutComponent
+    ListadoCheckoutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

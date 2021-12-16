@@ -1,0 +1,26 @@
+<div class="row p-2 justify-content-center">
+    <div class="row justify-content-center p-2 mt-2 rounded">
+      <div class="col-8 listado-productos rounded">
+        <!-- <ul *ngFor="let data of dataset | filter: searchText"> -->
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 80%">Categoria</th>
+                <th style="width: 10%">Id</th>
+                <th style="width: 10%">Comprar</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of listadoProductos">
+              
+              <td scope="row">{{producto.nombre}}</td>
+              <td  scope="row">{{producto.id}}</td>
+              <td scope="row">&nbsp;<button type="button" class="btn btn-primary" (click)="addToCart(producto.id)"><i class="fas fa-plus"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>

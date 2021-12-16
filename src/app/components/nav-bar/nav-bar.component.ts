@@ -1,29 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Categoria } from 'src/app/interfaces/categoria.interface';
 import { SearchServiceService } from 'src/app/services/search-service.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-
-  @Input("searchText") searchText:string = '';
+  @Input('searchText') searchText: string = '';
   showCart: boolean = false;
   listado: Categoria[] = [];
   @Output() search_ = new EventEmitter<string>();
   // @Input() listadoProductosCart: Categoria[];
   @Input() listadoProductosCart: Categoria[];
 
-  
-  
-
-  constructor(private searchService: SearchServiceService) { 
+  constructor(private _cartService: CartService, 
+    private _searchService: SearchServiceService) {
     this.listadoProductosCart = [];
   }
 
   ngOnInit(): void {
+    this._cartService.currentListadoCart$.subscribe(
+      (listado:any) => (this.listadoProductosCart = listado)
+    );
   }
 
   toggle() {
@@ -31,17 +32,7 @@ export class NavBarComponent implements OnInit {
   }
 
   public search(text: any) {
-    console.log(text);
-    // console.log(this.listado);
-    // this.searchService
-    // .getAllCategorias()
-    // .subscribe((resp: any) => 
-    //   {
-    //     this.listado = resp.data;
-    //     this.search_.emit(this.listado);
-    //   });
+    // console.log(text);
     this.search_.emit(text);
-
   }
-
 }
