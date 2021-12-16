@@ -15,6 +15,7 @@ export class NavBarComponent implements OnInit {
   @Output() search_ = new EventEmitter<string>();
   // @Input() listadoProductosCart: Categoria[];
   @Input() listadoProductosCart: Categoria[];
+  cantidadProductos: number = 0;
 
   constructor(private _cartService: CartService, 
     private _searchService: SearchServiceService) {
@@ -23,12 +24,18 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this._cartService.currentListadoCart$.subscribe(
-      (listado:any) => (this.listadoProductosCart = listado)
+      (listado:any) => {
+        this.listadoProductosCart = listado;
+        this.cantidadProductos = this.listadoProductosCart.length;
+      }
     );
   }
 
-  toggle() {
-    this.showCart = !this.showCart;
+  toggle(event:any) {
+    event.preventDefault();
+    if (this.cantidadProductos !== 0) {
+      this.showCart = !this.showCart;
+    }
   }
 
   public search(text: any) {

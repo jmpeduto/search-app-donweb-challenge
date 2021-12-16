@@ -32,20 +32,8 @@ export class SearchServiceService {
           listadoAux.push(producto);
         }
       }),
-
       this.listadoSource.next(listadoAux);
     });
-
-    // this.currentListado$.subscribe(
-    //   (listado:any) => (
-    //     listado.filter((it:any) => {
-    //       return it.nombre.toLocaleLowerCase().includes(searchText);
-    //     })),
-    //     console.log(this.listado);
-    //     );
-    // items.filter(it => {
-    //   return it.nombre.toLocaleLowerCase().includes(searchText);
-    // });
   }
 
   someMethod() {

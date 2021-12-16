@@ -8,10 +8,9 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   title = 'search-app';
   public searchText: any;
   listadoProductos: Categoria[] = [];
@@ -20,49 +19,37 @@ export class HomeComponent implements OnInit {
   getProductos$: Observable<Categoria[]> = of(this.listadoProductos);
 
   //aca van los agregados al carrito
-  listadoProductosCart:Categoria[] = [];
+  listadoProductosCart: Categoria[] = [];
 
-  constructor(private _searchService: SearchServiceService, 
-    private _cartService:CartService) {}
+  constructor(
+    private _searchService: SearchServiceService,
+    private _cartService: CartService
+  ) {}
 
-  public search(text: any) {
-    console.log(text);
-    console.log(this.listadoProductos);
-    this.searchText = text;
+  public addToCart(producto: any) {
+    // console.log(productId);
 
-    this.listadoProductos.filter((it) => {
-      return it.nombre.toLocaleLowerCase().includes(text);
-      //si el elemento esta en la busqueda
-      // if (filtered) {
-      //   this.navBar.listadoProductosCart.push(it);
-      // }
-    });
-  }
+    // this.listadoProductos.forEach((producto) => {
+    if (
+      !this.listadoProductosCart.find((producto_: any) => {
+        return producto.id == producto_.id;
+      })
+    ) {
+      this.listadoProductosCart.push(producto);
+    }else{
+      alert("El producto ya fue agregado");
+    }
 
-  public addToCart(productId: number) {
-    console.log(productId);
-    
-    this.listadoProductos.forEach((producto) => {
-      if (producto.id == productId) {
-        this.listadoProductosCart.push(producto);
-      }
-    });
+    // });
 
     this._cartService.updateListadoCart(this.listadoProductosCart);
   }
 
-  public loadListado() {
-    // console.log(text);
-    console.log(this.listadoProductos);
-  }
-
   ngOnInit() {
-    console.log("oninit");
+    console.log('oninit');
     this._searchService.getAllCategorias();
     this._searchService.currentListado$.subscribe(
-      (listado:any) => (this.listadoProductos = listado)
+      (listado: any) => (this.listadoProductos = listado)
     );
-
   }
-
 }

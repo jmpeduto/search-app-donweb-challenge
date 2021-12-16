@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/interfaces/categoria.interface';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-listado-checkout',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoCheckoutComponent implements OnInit {
 
-  constructor() { }
+  listadoProductosCart: Categoria[] = [];
+  cantidadProductos: number = 0;
+
+  constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
+    this._cartService.currentListadoCart$.subscribe(
+      (listado:any) => {
+        this.listadoProductosCart = listado;
+        this.cantidadProductos = this.listadoProductosCart.length;
+      }
+    );
+  }
+
+  eliminar(producto: any){
+
   }
 
 }

@@ -9,16 +9,16 @@
               <tr>
                 <th style="width: 80%">Categoria</th>
                 <th style="width: 10%">Id</th>
-                <th style="width: 10%">Comprar</th>
+                <th style="width: 10%">Eliminar</th>
               </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let categoria of listado | filter: searchText">
+            <tr *ngFor="let producto of listadoProductosCart">
               
-              <td scope="row">{{categoria.nombre}}</td>
-              <td  scope="row">{{categoria.id}}</td>
-              <td scope="row">&nbsp;<button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-plus"></i></button></td>
-            </tr> -->
+              <td scope="row">{{producto.nombre}}</td>
+              <td  scope="row">{{producto.id}}</td>
+              <td scope="row">&nbsp;<button type="button" class="btn btn-danger" (click)="eliminar(producto)"><i class="fas fa-minus"></i></button></td>
+            </tr>
           </tbody>
         </table>
       </div>

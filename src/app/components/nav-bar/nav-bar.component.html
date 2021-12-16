@@ -38,7 +38,7 @@
           </form>
       
       <ul class="navbar-right">
-        <li><a href="#" id="cart" (click)="toggle()" ><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+        <li><a href="#" id="cart" (click)="toggle($event)" ><i class="fa fa-shopping-cart"></i> Carrito <span class="badge">{{cantidadProductos}}</span></a></li>
       </ul> <!--end navbar-right -->
     </div> <!--end container -->
   </nav>
@@ -49,7 +49,7 @@
   
         <div class="shopping-cart shadow-lg p-3 mb-5 bg-body rounded animate__animated animate__faster animate__fadeIn">
           <div class="shopping-cart-header">
-            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cantidadProductos}}</span>
             <div class="shopping-cart-total">
               <span class="lighter-text">Total:</span>
               <span class="main-color-text">$2,229.97</span>
@@ -67,7 +67,7 @@
             
           </ul>
       
-          <a href="#" class="button">Checkout</a>
+          <a href="#" class="button" [routerLink]="[ '/listadoCheckout' ]">Finalizar Compra</a>
         </div> <!--end shopping-cart -->
   </div> <!--end container -->
   <!-- ende ejemplo carrito 1 -->
