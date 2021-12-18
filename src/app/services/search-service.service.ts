@@ -31,7 +31,7 @@ export class SearchServiceService {
     const body = {  };
     this.http.post<any>('http://138.36.238.131:50074/api/getProductos', body,this.httpOptions ).subscribe(data => {
         // this.postId = data.id;
-        console.log(data);
+        
     });
   }
 
@@ -39,7 +39,7 @@ export class SearchServiceService {
     let listadoAux: Plan[] = [];
     this.http.post(donwebApiRoutes.getListado, '').subscribe((res: any) => {
       listadoAux = res.response.planes;
-      // console.log(res);
+      // 
       this.listadoSource.next(listadoAux);
       this.cargadoListado = true;
     });
@@ -49,7 +49,7 @@ export class SearchServiceService {
 
   searchListado(searchText: string) {
     let listadoAux: Plan[] = [];
-    console.log(searchText);
+    
     this.http.post(donwebApiRoutes.getListado, '').subscribe((res: any) => {
       res.response.planes.forEach((plan: Plan) => {
         if (plan.plan.toLowerCase().includes(searchText.toLowerCase())) {

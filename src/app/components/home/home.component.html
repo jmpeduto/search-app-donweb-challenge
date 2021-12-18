@@ -7,25 +7,25 @@
         <table class="table" *ngIf="listadoPlanes.length > 0; else noResults">
           <thead>
             <tr>
-              <th style="width: 20%">Plan</th>
-              <th style="width: 20%">Tipo</th>
-              <th style="width: 20%" style="text-align: right">
-                Periodo 12 ($)
+              <th style="width: 40%">Plan</th>
+              <!-- <th style="width: 20%">Tipo</th> -->
+              <th style="width: 60%" style="text-align: right">
+                Periodo 12 meses
               </th>
               <th style="width: 20%" style="text-align: right">
-                Periodo 24 ($)
+                Periodo 24 meses
               </th>
               <th style="width: 20%" style="text-align: right">
-                Periodo 36 ($)
+                Periodo 36 meses
               </th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let plan of listadoPlanes">
               <td scope="row">{{ plan.nombre }}</td>
-              <td scope="row">{{ plan.plan }}</td>
+              <!-- <td scope="row">{{ plan.plan }}</td> -->
               <td style="text-align: right">
-                {{ plan.periodos[0].valor }}&nbsp;<button
+                $&nbsp;{{ plan.periodos[0].valor }}&nbsp;<button
                   type="button"
                   class="btn btn-primary"
                   (click)="addToCart(plan, plan.periodos[0].periodo)"
@@ -35,7 +35,7 @@
                 </button>
               </td>
               <td style="text-align: right">
-                {{ plan.periodos[1].valor }}&nbsp;<button
+                $&nbsp;{{ plan.periodos[1].valor }}&nbsp;<button
                   type="button"
                   class="btn btn-primary"
                   (click)="addToCart(plan, plan.periodos[1].periodo)"
@@ -45,7 +45,7 @@
                 </button>
               </td>
               <td style="text-align: right">
-                {{ plan.periodos[2].valor }}&nbsp;<button
+                $&nbsp;{{ plan.periodos[2].valor }}&nbsp;<button
                   type="button"
                   class="btn btn-primary"
                   [disabled]="plan.agregadoCarrito"

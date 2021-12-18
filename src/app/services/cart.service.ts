@@ -20,17 +20,17 @@ export class CartService {
   }
 
   agregarItem(plan: Plan) {
-    console.log(plan.plan);
+    
     let finded = this.isInCarrito(plan);
     let response: boolean = false;
-    // console.log(finded);
+    // 
     // if (finded == false) {
       let url = donwebApiRoutes.agregarItem + '?plan=' + plan.plan + '&periodo=' + plan.periodoActivo;
-      console.log(url);
+      
       this.http.post(url, '')
         .subscribe((res: any) => {
           // let listadoAux = res.response.planes;
-          console.log('agregar item' + res);
+          
           response = res.result;
           this.getListadoCarrito();
         });
@@ -45,7 +45,7 @@ export class CartService {
       .get(donwebApiRoutes.remover + '?id_producto=' + plan.id_producto)
       .subscribe((res: any) => {
         // let listadoAux = res.response.planes;
-        // console.log(res);
+        // 
         response = res.result;
         this.getListadoCarrito();
       });
@@ -63,7 +63,7 @@ export class CartService {
       .post(donwebApiRoutes.getListadoCarrito, '')
       .subscribe((res: any) => {
         listadoAux = res.response;
-        console.log(res);
+        
         this.listadoCarrito = listadoAux;
         this.listadoCarritoSource.next(listadoAux);
       });

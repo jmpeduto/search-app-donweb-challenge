@@ -24,8 +24,8 @@ export class AppComponent {
     ).subscribe(event => 
       {
         this.currentRoute = event.url;          
-        // console.log(event);
-        // console.log(this.currentRoute);
+        // 
+        // 
 
         //cambio valores navbar
         switch (this.currentRoute) {
@@ -44,11 +44,11 @@ export class AppComponent {
             break;
         }
       });
-      // console.log(router.url);
+      // 
     }
   
 
   ngOnInit() {
-    // console.log(this.router.url);
+    // 
   }
 }

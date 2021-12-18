@@ -39,7 +39,7 @@
           </form>
       
       <ul class="navbar-right">
-        <li><a href="#" id="cart" (click)="toggle($event)" ><i class="fa fa-shopping-cart"></i> Carrito <span class="badge">{{cantidadProductos}}</span></a></li>
+        <li><a href="#" id="cart" (click)="toggle($event)" ><i class="fa fa-shopping-cart"></i> Carrito <span *ngIf="cantidadProductos != 0" class="badge">{{cantidadProductos}}</span></a></li>
       </ul> <!--end navbar-right -->
     </div> <!--end container -->
   </nav>

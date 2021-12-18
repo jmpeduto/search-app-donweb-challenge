@@ -33,27 +33,18 @@ export class HomeComponent implements OnInit {
   ) {}
 
   public addToCart(plan: Plan, periodo: number) {
-    // console.log(productId);
-
-    // this.listadoProductos.forEach((producto) => {
     plan.agregadoCarrito = true;
     plan.periodoActivo = periodo;
-    // this.listadoPlanesCart.push(plan);
     this._cartService.agregarItem(plan);
-    // if( == true){
-    //   alert("El producto ya fue agregado");
-    // }
-    //actualiza el listado del servicio
-    // this._cartService.updateListadoCart(this.listadoPlanesCart);
   }
 
   ngOnInit() {
     this.cargarListados();
-    this._searchService.llamadaPruebaCors();
+    // this._searchService.llamadaPruebaCors();
   }
 
    cargarListados() {
-    console.log('oninit Home');
+    
     // this.navBar.setTitulo("Productos");
     // this._searchService.getListado();
     this.cartServiceSubscription$ =
@@ -75,8 +66,8 @@ export class HomeComponent implements OnInit {
   // filtra los planes que ya fueron agregados al carrito
   async checkDisponibles() {
     // this._cartService.
-    console.log(this.listadoPlanes);
-    console.log(this.listadoPlanesCart);
+    
+    
     if (this.listadoPlanesCart) {
       this.listadoPlanes.forEach((plan) => {
         let i = 0;
@@ -98,8 +89,8 @@ export class HomeComponent implements OnInit {
       // this._searchService.getListado();
       // this._cartService.getListadoCarrito();
     }
-    console.log(this.listadoPlanes);
-    console.log(this.listadoPlanesCart);
+    
+    
     // listadoPlanes
   }
 
@@ -110,7 +101,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    console.log('after view checked');
+    
     //Called after every check of the component's view. Applies to components only.
     //Add 'implements AfterViewChecked' to the class.
     this.checkDisponibles();
@@ -119,7 +110,7 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    console.log('ondestroy hme');
+    
     // this.searchServiceSubscription$.unsubscribe();
     // this.cartServiceSubscription$.unsubscribe();
     this.listadoPlanesCart = [];
