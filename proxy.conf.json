@@ -17,13 +17,13 @@
         "^/agregarItem": ""
       }
   },
-  "/getListadoCarrito": {
+  "/listadoCarrito": {
     "target": "http://c1300044.ferozo.com/getListadoCarrito.php",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
       "pathRewrite": {
-        "^/getListadoCarrito": ""
+        "^/listadoCarrito": ""
       }
   },
   "/removerItem": {

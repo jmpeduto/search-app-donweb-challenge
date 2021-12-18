@@ -7,17 +7,22 @@
           <table class="table">
             <thead>
               <tr>
-                <th style="width: 80%">Categoria</th>
-                <th style="width: 10%">Id</th>
+                <th style="width: 80%">Plan</th>
+                <th style="width: 10%">Periodo</th>
+                <th style="width: 10%">Precio</th>
                 <th style="width: 10%">Eliminar</th>
               </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let producto of listadoProductosCart">
+            <tr *ngFor="let plan of listadoPlanesCart">
               
-              <td scope="row">{{producto.nombre}}</td>
-              <td  scope="row">{{producto.id}}</td>
-              <td scope="row">&nbsp;<button type="button" class="btn btn-danger" (click)="eliminar(producto)"><i class="fas fa-minus"></i></button></td>
+              <td scope="row">{{plan.nombre}}</td>
+              <td  scope="row">{{plan.periodo}}&nbsp;meses</td>
+              <td  scope="row">$&nbsp;{{plan.valor}}</td>
+              <td scope="row">&nbsp;<button type="button" class="btn btn-danger" (click)="eliminar(plan)"><i class="fas fa-minus"></i></button></td>
+            </tr>
+            <tr>
+              <td colspan="4" scope="row" style="text-align: right; font-weight: bold;">Precio total:&nbsp;$&nbsp;{{precioTotal}}</td>
             </tr>
           </tbody>
         </table>

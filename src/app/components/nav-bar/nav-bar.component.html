@@ -33,7 +33,7 @@
             
       </ul> <!--end navbar-left -->
       <form action="#" class="d-flex p-0 me-auto" style="margin-top: -15px; margin-left: 15px;" *ngIf="!checkout">
-      <input type="search" name="searchText" [(ngModel)]="searchText" class="form-control rounded search-box" placeholder="Buscar" aria-label="Buscar"
+      <input type="search" #searchInput name="searchText" [(ngModel)]="searchText" class="form-control rounded search-box" placeholder="Buscar" aria-label="Buscar"
             aria-describedby="search-addon" />
             <button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-search"></i></button>
           </form>
@@ -53,22 +53,23 @@
             <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cantidadProductos}}</span>
             <div class="shopping-cart-total">
               <span class="lighter-text">Total:</span>
-              <span class="main-color-text">$2,229.97</span>
+              <span class="main-color-text">&nbsp;$&nbsp;{{precioTotal}}</span>
             </div>
           </div> <!--end shopping-cart-header -->
       
           <ul class="shopping-cart-items">
-            <li *ngFor="let item of listadoProductosCart" class="clearfix">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-              <span class="item-name">Sony DSC-RX100M III</span>
-              <span class="item-price">$849.99</span>
-              <span class="item-quantity">Quantity: 01</span>
+            <li *ngFor="let plan of listadoCarrito" class="clearfix">
+              <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" /> -->
+              <span class="item-name">Nombre: {{plan.nombre}}</span>
+              <span class="item-price">Periodo:&nbsp;{{plan.periodo}}&nbsp;meses</span>
+              <span class="item-quantity">$&nbsp;{{plan.valor}}</span>
             </li>
       
             
           </ul>
-      
-          <a href="#" class="button" [routerLink]="[ '/listadoCheckout' ]">Finalizar Compra</a>
+          <div class="d-grid gap-2">
+            <a href="#" class="btn btn-primary" [routerLink]="[ '/listadoCheckout' ]">Finalizar Compra</a>
+          </div>
         </div> <!--end shopping-cart -->
   </div> <!--end container -->
   <!-- ende ejemplo carrito 1 -->

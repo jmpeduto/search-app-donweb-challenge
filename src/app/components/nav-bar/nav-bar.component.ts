@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/interfaces/categoria.interface';
+import { Plan } from 'src/app/interfaces/plan';
 import { SearchServiceService } from 'src/app/services/search-service.service';
 import { CartService } from '../../services/cart.service';
 
@@ -14,26 +15,39 @@ export class NavBarComponent implements OnInit {
   @Input('searchText') searchText: string = '';
   showCart: boolean = false;
   checkout: boolean = false;
-  listado: Categoria[] = [];
   @Output() search_ = new EventEmitter<string>();
   // @Input() listadoProductosCart: Categoria[];
-  @Input() listadoProductosCart: Categoria[];
+  listadoCarrito: any[] = [];
   cantidadProductos: number = 0;
   titulo: string = 'Productos';
+  precioTotal: number = 0;
+  @ViewChild('searchInput')
+  searchInput!: ElementRef;
+
+
 
   constructor(
     private _cartService: CartService,
     private _searchService: SearchServiceService,
-    private router: Router
+    private router: Router,
+    private r2: Renderer2
+    // private el: ElementRef
   ) {
-    this.listadoProductosCart = [];
+
   }
 
   ngOnInit(): void {
-    this._cartService.currentListadoCart$.subscribe((listado: any) => {
-      this.listadoProductosCart = listado;
-      this.cantidadProductos = this.listadoProductosCart.length;
+    // this.getListadoCarrito();
+    this._cartService.currentListadoCarrito$.subscribe((listado: any) => {
+      // this._cartService.getListadoCarrito();
+      this.listadoCarrito = listado;
+      this.cantidadProductos = this.listadoCarrito ? this.listadoCarrito.length : 0;
+      if(this.cantidadProductos > 0){
+        this.precioTotal = this._cartService.calcularPrecioCarrito();
+      }
     });
+    this.r2.setProperty(this.searchInput.nativeElement, 'value', '');
+
   }
 
   toggle(event: any) {
@@ -65,5 +79,13 @@ export class NavBarComponent implements OnInit {
     event.preventDefault();
     this.router.navigate(['/'])
   }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this._cartService.currentListadoCarrito$.unsubscribe();
+    
+  }
+  
 
 }
