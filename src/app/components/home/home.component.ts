@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { find, Observable, of, Subscription } from 'rxjs';
 import { SearchServiceService } from 'src/app/services/search-service.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public _searchService: SearchServiceService,
-    private _cartService: CartService
+    private _cartService: CartService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   public addToCart(plan: Plan, periodo: number) {
@@ -105,6 +106,7 @@ export class HomeComponent implements OnInit {
     //Called after every check of the component's view. Applies to components only.
     //Add 'implements AfterViewChecked' to the class.
     this.checkDisponibles();
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy(): void {

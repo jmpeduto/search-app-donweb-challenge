@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 // ejemplo carrito 1
 $main-color: #6394F8;
 $light-text: #ABB0BE;

@@ -50,8 +50,6 @@ export class NavBarComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    //Called after every check of the component's view. Applies to components only.
-    //Add 'implements AfterViewChecked' to the class.
     this.r2.setProperty(this.searchInput.nativeElement, 'value', '');
   }
 
