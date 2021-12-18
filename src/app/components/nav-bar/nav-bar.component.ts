@@ -46,8 +46,13 @@ export class NavBarComponent implements OnInit {
         this.precioTotal = this._cartService.calcularPrecioCarrito();
       }
     });
-    this.r2.setProperty(this.searchInput.nativeElement, 'value', '');
 
+  }
+
+  ngAfterViewChecked(): void {
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
+    this.r2.setProperty(this.searchInput.nativeElement, 'value', '');
   }
 
   toggle(event: any) {

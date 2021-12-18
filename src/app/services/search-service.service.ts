@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { donwebApiRoutes } from '../api.donweb.routes';
@@ -9,12 +9,14 @@ import { Plan } from '../interfaces/plan';
   providedIn: 'root',
 })
 export class SearchServiceService {
-  // Fake API URL
-  //en proxy.conf.json equivale a "target": "http://138.36.238.131:50074/api/getAllCategorias",
-  // url: string = 'http://localhost:4200/';
-  // url: string = 'http://localhost:4200/';
-  // url: string = 'http://localhost:4200/';
-  // url: string = 'http://localhost:4200/';
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    })
+  };
+ 
   public listado: Plan[] = [];
   private listadoSource: any = new BehaviorSubject(this.listado);
   currentListado$ = this.listadoSource.asObservable();
@@ -24,9 +26,14 @@ export class SearchServiceService {
     this.getListado();
   }
 
-  //  getAllCategorias() {
-  //   this.http.post(this.url, '').subscribe( (res:any) => this.listadoSource.next(res.data));
-  // }
+  llamadaPruebaCors(){
+    const headers = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' };
+    const body = {  };
+    this.http.post<any>('http://138.36.238.131:50074/api/getProductos', body,this.httpOptions ).subscribe(data => {
+        // this.postId = data.id;
+        console.log(data);
+    });
+  }
 
   getListado() {
     let listadoAux: Plan[] = [];

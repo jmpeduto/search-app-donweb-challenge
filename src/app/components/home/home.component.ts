@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.cargarListados();
+    this._searchService.llamadaPruebaCors();
   }
 
    cargarListados() {
