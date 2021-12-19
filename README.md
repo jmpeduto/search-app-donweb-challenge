@@ -1,5 +1,6 @@
 # Ejecutar el proyecto
 ```npm install```
+
 ```ng serve```
 
 # Solucion para Cors Angular (deprecada en actualizacion de Node)
