@@ -1,4 +1,6 @@
-# Ejecutar el proyecto
+# Search app para donweb challenge
+Para correr el proyecto ejecutar los siguientes comandos
+
 ```npm install```
 
 ```ng serve```
