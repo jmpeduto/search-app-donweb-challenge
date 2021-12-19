@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng build\" \"node server.js\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -23,8 +23,11 @@
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "animate.css": "^4.1.1",
+    "body-parser": "^1.19.1",
     "bootstrap": "^5.1.3",
+    "express": "^4.17.2",
     "path-browserify": "^1.0.1",
+    "request": "^2.88.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

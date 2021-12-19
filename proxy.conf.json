@@ -1,5 +1,5 @@
 {
-  "/getListado": {
+  "/getListado/*": {
     "target": "http://c1300044.ferozo.com/getListado.php",
     "secure": false,
     "logLevel": "debug",

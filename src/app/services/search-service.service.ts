@@ -28,10 +28,10 @@ export class SearchServiceService {
   
   constructor(private http: HttpClient) {
     this.getListado();
-  //   let app = express();
+    // let app = express();
   
-  //   app.use('/getListado', createProxyMiddleware({ target: 'http://c1300044.ferozo.com/getListado.php', changeOrigin: true }));
-  //   app.listen(3000);
+    // app.use('/getListado', createProxyMiddleware({ target: 'http://c1300044.ferozo.com/getListado.php', changeOrigin: true }));
+    // app.listen(3000);
   }
   
   llamadaPruebaCors(){
