@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
   // @Input() listadoProductosCart: Categoria[];
   listadoCarrito: any[] = [];
   cantidadProductos: number = 0;
-  titulo: string = 'Productos';
+  titulo: string = 'Planes';
   precioTotal: number = 0;
   @ViewChild('searchInput')
   searchInput!: ElementRef;

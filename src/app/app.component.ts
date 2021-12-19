@@ -30,7 +30,7 @@ export class AppComponent {
         //cambio valores navbar
         switch (this.currentRoute) {
           case "/":
-            this.navBar.setTitulo("Productos");
+            this.navBar.setTitulo("Planes");
             this.navBar.setCheckout(false);
             break;
         
