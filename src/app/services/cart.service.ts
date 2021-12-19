@@ -49,7 +49,7 @@ export class CartService {
         response = res.result;
         this.getListadoCarrito();
       });
-
+      // this.updateListadoCart(listado)
     return response;
   }
 

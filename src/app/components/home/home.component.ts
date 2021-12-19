@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
     //recarga los listados
     this._searchService.getListado();
-    this._cartService.getListadoCarrito();
+    // this._cartService.getListadoCarrito();
   }
 
   // filtra los planes que ya fueron agregados al carrito

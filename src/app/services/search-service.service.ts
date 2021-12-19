@@ -27,7 +27,7 @@ export class SearchServiceService {
   cargadoListado: boolean = false;
   
   constructor(private http: HttpClient) {
-    this.getListado();
+    // this.getListado();
     // let app = express();
   
     // app.use('/getListado', createProxyMiddleware({ target: 'http://c1300044.ferozo.com/getListado.php', changeOrigin: true }));
