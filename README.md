@@ -1,7 +1,7 @@
 # Ejecutar el proyecto
-```npm start```
+```ng serve```
 
-# Solucion para Cors Angular
+# Solucion para Cors Angular (deprecada en actualizacion de Node)
  Crear un archivo de configuracion en la raiz del proyecto **proxy.conf.json**
  
  **pathRewrite** quita el /api de la llamada a la consulta del target
