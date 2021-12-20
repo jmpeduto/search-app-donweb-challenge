@@ -1,3 +1,4 @@
+// import fetch from node-fetch;
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
@@ -6,7 +7,6 @@ const cors = require("cors");
 // const http = require('httpclients')
 const axios = require("axios");
 const got = require('got');
-// const fetch = require('node-fetch');
 
 
 app.use(function (req, res, next) {
@@ -37,6 +37,38 @@ app.get("/getListado", (req, resp) => {
  });
 
  return resp.json(); 
+});
+
+app.get("/getListadoFetch", (req, resp) => {
+	// var data = new FormData();
+
+	// data.append('grant_type', 'password');
+	// data.append('client_id', '2');
+	// data.append('client_secret', 'secret_token');
+	// data.append('scope', '*');
+
+	// data.append('username', 'mail');
+	// data.append('password', 'pwd');
+
+	const config = {
+	'mode': 'cors', 
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+		},
+		body: {},
+	}   
+
+	var link = 'https://domain.com/oauth/token';
+	fetch(link, config)
+		.then((response) => response.json())
+		.then((responseJson) => {
+			console.log(responseJson);
+
+		})
+		.catch(err => {
+			console.log(err);
+		})
 });
 
 app.listen(3000, function () {
