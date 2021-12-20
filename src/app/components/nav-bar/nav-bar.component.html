@@ -29,13 +29,13 @@
     <div class="container-fluid">
       <ul class="navbar-left">
         <li *ngIf="checkout"><a href="#" id="cart" (click)="backClicked($event)" ><i class="fa fa-arrow-left"></i></a></li>
-        <li><a href="#" style="font-weight: bold; font-size: 1.5vw;">{{titulo}}</a></li>
+        <li><a href="#" style="font-weight: bold; font-size: 1.1vw;">{{titulo}}</a></li>
             
       </ul> <!--end navbar-left -->
       <form action="#" class="d-flex p-0 me-auto" style="margin-top: -15px; margin-left: 15px;" *ngIf="!checkout">
-      <input type="search" #searchInput name="searchText" [(ngModel)]="searchText" class="form-control rounded search-box" placeholder="Buscar" aria-label="Buscar"
+      <input type="search" #searchInput (keydown.enter)="search(searchText)" name="searchText" [(ngModel)]="searchText" class="form-control rounded search-box" placeholder="Buscar" aria-label="Buscar"
             aria-describedby="search-addon" />
-            <button type="button" class="btn btn-primary" (click)="search(searchText)"><i class="fas fa-search"></i></button>
+            <button type="button" class="btn btn-primary" (click)="search(searchText)" style="margin-left: -8px; border-radius: 0 10% 10% 0;"><i class="fas fa-search"></i></button>
           </form>
       
       <ul class="navbar-right">

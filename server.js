@@ -1,77 +1,44 @@
-// Use Express
 var express = require("express");
-// Use body-parser
+var app = express();
 var bodyParser = require("body-parser");
-const request = require('request');
+const request = require("request");
+const cors = require("cors");
+// const http = require('httpclients')
+const axios = require("axios");
+const got = require('got');
+// const fetch = require('node-fetch');
 
 
-
-const app = express();
-
-// const publicPath = path.resolve(__dirname, '../public');
-const port = process.env.PORT || 3000;
-
-// Define the JSON parser as a default way 
-// to consume and produce data through the 
-// exposed APIs
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Create link to Angular build directory
-// The `ng build` command will save the result
-// under the `dist` folder.
-// var distDir = "/dist/";
-// app.use(express.static(distDir));
 
-app.get('/getListado', (req, resp) => {
+app.use(cors());
+// app.use(express.json());
 
-    // let client_id = req.params.client_id;
-    // let client_secret = req.params.client_secret;
-    let serverUrl = 'http://c1300044.ferozo.com/getListado.php';
-	var authOptions = {
-        url: serverUrl,
-        headers: {
-            // Authorization: 'Basic ' + new Buffer(client_id + ':' + client_secret).toString('base64')
-        },
-        form: {
-            // grant_type: 'client_credentials'
-        },
-        json: true
-    };
+//server config
+app.get("/getListado", (req, resp) => {
+ // 1. Crea un nuevo objeto XMLHttpRequest
+	var response;
+ got.post('http://c1300044.ferozo.com/getListado.php', { retry: { limit: 3, methods: ["GET", "POST"] }, json: true }).then(response_ => {
+   console.log(response_.body.url);
+//    console.log(response.body_.explanation);
+   response = response_;
+ }).catch(error => {
+   console.log(error);
+ });
 
-    // var authOptions = {
-    //     url: serverUrl,
-    //     headers: {
-    //         Authorization: 'Basic ' + new Buffer(client_id + ':' + client_secret).toString('base64')
-    //     },
-    //     form: {
-    //         grant_type: 'client_credentials'
-    //     },
-    //     json: true
-    // };
-	// resp.json(body);
-
-
-    request.post(authOptions, (err, httpResponse, body) => {
-
-        if (err) {
-            return resp.status(400).json({
-                ok: false,
-                mensaje: 'No se pudo hacer la consulta',
-                err
-            })
-        }
-
-        resp.json(body);
-
-    });
-
+ return resp.json(); 
 });
 
-
-app.listen(port, (err) => {
-
-    if (err) throw new Error(err);
-
-    console.log(`Servidor corriendo en puerto ${ port }`);
-
+app.listen(3000, function () {
+  console.log("CORS-enabled web server listening on port 3000");
 });
