@@ -6,7 +6,7 @@ function requireHTTPS(req, res, next) {
   next();
 }
 const express = require("express");
-const crs = require("cors");
+const cors = require("cors");
 const app = express();
 app.use(cors());
 // app.use(requireHTTPS);
