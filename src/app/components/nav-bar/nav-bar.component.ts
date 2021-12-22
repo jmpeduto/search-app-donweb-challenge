@@ -23,6 +23,7 @@ export class NavBarComponent implements OnInit {
   precioTotal: number = 0;
   @ViewChild('searchInput')
   searchInput!: ElementRef;
+  homeContainer!: ElementRef;
 
 
 
@@ -57,6 +58,13 @@ export class NavBarComponent implements OnInit {
     event.preventDefault();
     if (this.cantidadProductos !== 0) {
       this.showCart = !this.showCart;
+      if(this.showCart){
+        // this.r2.setProperty(this.homeContainer.nativeElement, 'style', 'backdrop-filter: blur(5px);');
+        console.log(document.getElementById('homeContainer')?.getAttribute('class'));
+        document.getElementById('homeContainer')?.setAttribute('style', 'filter: blur(5px);-webkit-filter: blur(5px);-moz-filter: blur(5px);-o-filter: blur(5px);-ms-filter: blur(5px);');
+      }else{
+        document.getElementById('homeContainer')?.setAttribute('style', '');
+      }
     }
   }
 

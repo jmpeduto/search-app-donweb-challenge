@@ -16,7 +16,9 @@ export class SearchServiceService {
   private httpOptions = {
     headers: new HttpHeaders({ 
       'Access-Control-Allow-Origin':'*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      'Content-Type': 'text/html; charset=UTF-8',
+      'X-Powered-By': 'Express'
     })
   };
 
@@ -37,7 +39,7 @@ export class SearchServiceService {
   llamadaPruebaCors(){
     const headers = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' };
     const body = {  };
-    this.http.post<any>('http://138.36.238.131:50074/api/getProductos', body,this.httpOptions ).subscribe(data => {
+    this.http.post<any>('http://clarin.com', body,this.httpOptions ).subscribe(data => {
         // this.postId = data.id;
         
     });
