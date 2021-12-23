@@ -1,7 +1,15 @@
-.listado-productos{
-    box-shadow:0px 0.2px 10px black;
-    .btn{
-        border: 1px solid grey;
+.menu-column {
+    width: 10vw;
+    height: 80vh;
+}
+.listado-productos {
+  .btn {
+    border: 1px solid grey;
+  }
+}
 
-    }
+
+
+.col-shadow{
+    box-shadow: 0px 0.2px 10px black;
 }

@@ -28,6 +28,15 @@ $light-text: #ABB0BE;
     left: 10%;
 }
 nav {
+  width: 100%;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
   padding: 15px 0 5px 0;
   background: #F8F8F8;
   font-size: 16px;
@@ -52,7 +61,7 @@ nav {
   }
 
   form{
-    box-shadow:0px 0.2px 10px grey;
+    box-shadow:0px 0.2px 10px black;
     border-radius: 5px;
     // border: 1px solid grey;
   }
